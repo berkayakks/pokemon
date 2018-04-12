@@ -47,8 +47,16 @@
       
           <div class="row header-middle">
               <div  class="col-md-6">
-                <div class="progress">
-                      <div class="progress-bar bg-success" role="progressbar" style="width: 25%" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100"></div>
+                <div class="row">
+                  <div class="col-md-2">
+                      <img style="margin-left: 50px;margin-top: -10px;" src="images/heard.png" width="50px" height="50px" alt="">
+                  </div>
+                  <div class="col-md-10">
+                      <div class="progress">
+                          <div class="canbar1 progress-bar bg-success" role="progressbar"  aria-valuenow="25" aria-valuemin="0" aria-valuemax="100"></div>
+                        </div>
+                  </div>
+                  
                 </div>
                 <img class="ball1" src="images/ball.gif" width="200px" height="200px" alt="">
                 <br>
@@ -57,6 +65,17 @@
                 <p class="kazanan1">sonucu goster</p>
               </div>
               <div class="col-md-6">
+                  <div class="row">
+                      <div class="col-md-2">
+                          <img style="margin-left: 50px;margin-top: -10px;" src="images/heard.png" width="50px" height="50px" alt="">
+                      </div>
+                      <div class="col-md-10">
+                          <div class="progress">
+                              <div class="canbar2 progress-bar bg-success" role="progressbar"  aria-valuenow="25" aria-valuemin="0" aria-valuemax="100"></div>
+                            </div>
+                      </div>
+                      
+                    </div>
                 <img class="ball2" src="images/ball.gif" width="200px" height="200px" alt="">
                 <br>
                 <button class="pokemon-sec2 btn btn-success">pokemonunu seç</button>
@@ -84,6 +103,8 @@
           var sonucsecim;
           var sonucsecim2;
           var haritasecim;
+          var canbar1=100;
+          var canbar2=100;
           var lisayisi=$(".slider ul li").length;
           var ligenislik=640;
           var toplamgenislik=ligenislik*lisayisi;
@@ -260,16 +281,20 @@
             $(".sonuclar").click(function(){
               var kazandı=Takimlar[sonucsecim][sonucsecim2][rnd]; //burada harita ve karakterlerin indexleri alınarak dizi içerisine yerleştirdim ve bununla birlikte kimin kazandığını öğreniyorum
              if(sonucsecim==kazandı){ //açılan paragraflara göre sonucların eklenmesi
+               canbar2-=20;
                $(".kazanan1").text("kazanan");
                $(".kazanan1").css({"color":"green"});
                $(".kazanan2").text("kaybeden");
                $(".kazanan2").css({"color":"red"});
+               $(".canbar2").css({"width":""+canbar2+"%"});
              }
              else if(sonucsecim2==kazandı){
+               canbar1-=20;
                $(".kazanan1").text("kaybeden");
                $(".kazanan1").css({"color":"red"});
                $(".kazanan2").text("kazanan");
                $(".kazanan2").css({"color":"green"});
+               $(".canbar1").css({"width":""+canbar1+""});
              }
              else{
                $(".kazanan1").text("berabere kalindi");
