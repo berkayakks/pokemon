@@ -1,0 +1,283 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <link rel="stylesheet" href="css/style.css">
+    <link href="https://fonts.googleapis.com/css?family=Black+Han+Sans" rel="stylesheet">
+    <link rel="stylesheet" href="css/lightbox.min.css">
+    <title>Hello, world!</title>
+    
+  </head>
+  <body>
+    <div class="box">
+      <div class="kutu">
+        <p class="kapat">kapat</p>
+          <div id="slider">
+              <div class="slider">
+                <ul>
+                  <li><a href=""><img width="640px" height="426px" src="images/0.gif"></a></li>
+                  <li><a href=""><img width="640px" height="426px" src="images/1.gif"></a></li>
+                  <li><a href=""><img width="640px" height="426px" src="images/2.gif"></a></li>
+                  <li><a href=""><img width="640px" height="426px" src="images/3.gif"></a></li>
+                  <li><a href=""><img width="640px" height="426px" src="images/4.gif"></a></li>
+                </ul>
+              </div>
+              <div class="slider-buton">
+                <a href="#" class="geri-button">geri</a>
+                <a href="#" class="ileri-button">ileri</a>
+                <a href="#" class="sec">pokemonunu seç</a>
+              </div>
+            </div>
+      </div>
+    </div>
+    <div id="header">
+      <div class="row">
+        <div align="center" class="col-md-12">
+          <div class="header-text">
+            <h1 class="header-item">KARAKTERINIZI SECIN VE OYUNA BASLAYIN</h1>
+            <H3 class="header-item">IYI OLAN KAZANSIN</H3>
+          </div>
+        </div>
+      </div>
+      
+          <div class="row header-middle">
+              <div  class="col-md-6">
+                <img class="ball1" src="images/ball.gif" width="200px" height="200px" alt="">
+                <br>
+                <button class="pokemon-sec btn btn-success">pokemonunu seç</button>
+                <br>
+                <p class="kazanan1">sonucu goster</p>
+              </div>
+              <div class="col-md-6">
+                <img class="ball2" src="images/ball.gif" width="200px" height="200px" alt="">
+                <br>
+                <button class="pokemon-sec2 btn btn-success">pokemonunu seç</button>
+                <br>
+                <p class="kazanan2"> sonucu goster</p>
+              </div>
+              
+          </div>
+          <div class="row">
+            <button class="sonuclar btn btn-primary">sonucları göster</button>
+          </div>
+        </div>
+
+
+
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+    <script src="js/lightbox-plus-jquery.min.js"></script>
+    <script>
+     
+        $(document).ready(function(){
+          /* slider oluşturma alanı */
+          var pokisecim=0;
+          var sonucsecim;
+          var sonucsecim2;
+          var haritasecim;
+          var lisayisi=$(".slider ul li").length;
+          var ligenislik=640;
+          var toplamgenislik=ligenislik*lisayisi;
+          var liDeger=0;
+          $(".slider ul").css({"width":toplamgenislik+"px"});
+
+          $("a.ileri-button").click(function(){
+
+            if (liDeger<lisayisi-1) {//-1 yapmanın nedeni 1 tanesi zaten gözüküyo elde 4 kalıyo
+              
+              liDeger++;
+              yenigenişlik=ligenislik*liDeger;//bu alande her seferinde çarpıyor ama yeni genişliği açağıda belirlediğimiz için üzerine eklenmiyor yeni değer alıyor
+              $(".slider ul").stop().animate({ //yani -640 sonra -640 üzerine eklenerek değil -1280 seksene kayarak git diyor.
+                marginLeft:"-"+yenigenişlik+"px"
+              },1000)
+            }
+            else{
+              $(".slider ul").stop().animate({
+                marginLeft:"0px"
+              },1000)
+              liDeger=0;
+
+            }
+          });
+          $("a.geri-button").click(function(){
+
+            if (liDeger>0) {
+              
+              liDeger--;
+              yenigenişlik=ligenislik*liDeger;
+              $(".slider ul").stop().animate({
+                marginLeft:"-"+yenigenişlik+"px"
+              },1000)
+            }
+            else{
+              $(".slider ul").stop().animate({
+                marginLeft:"-"+(toplamgenislik-640)+"px"//burada da -640 yapmanın nedeni 5 tane gibi gözükmesine rağmen biz 4 resim kaysın diyoruz
+              },1000)
+              liDeger=lisayisi-1;
+              
+            }
+            //slider oluşturma alanı sonu
+          });
+          //tıklandığında gizli slider açılma kodları//
+          $(".pokemon-sec").click(function(){
+            $(".box").fadeIn(1000);
+            pokisecim=1;
+          });
+          $(".pokemon-sec2").click(function(){
+            $(".box").fadeIn(1000);
+            pokisecim=2;
+          });
+          //kod sonu
+          //açılan slideri kapatabilmek için yazılan kod satırı//
+          $(".kapat").click(function(){
+            $(".box").fadeOut(1000);
+          });
+          //kod sonu
+          //slider içinden istenilen pomenonu seçmek için yazılan kod alanı
+          $(".sec").click(function(){
+            if(pokisecim==1){
+              $(".ball1").attr("src","images/"+liDeger+".gif");
+              $(".box").fadeOut(500);
+              pokisecim=0;
+              sonucsecim=liDeger;
+            }
+            if(pokisecim==2){
+              $(".ball2").attr("src","images/"+liDeger+".gif");
+              $(".box").fadeOut(500);
+              pokisecim=0;
+              sonucsecim2=liDeger;
+            }
+            //kod sonu
+          });
+          //iç içe 3 boyutlu dizi oluşturma kod alanı
+          var Takimlar = new Array(4);
+
+
+            for (var i = 0; i <= 4; i++) {
+
+                Takimlar[i] = new Array(4);
+                for(var j=0;j<=4;j++){
+                  Takimlar[i][j]=new Array(4);
+                }
+
+            }
+            //kod sonu
+            //hangi pokemonun kazanacağını gösteren kod alanı
+            Takimlar[0][0][0] = 5;        //su sahası 0                  
+            Takimlar[0][0][1] = 5;        //ateş sahası 1
+            Takimlar[0][0][2] = 5;        //toprak saha 2
+            Takimlar[0][1][0] = 0;
+            Takimlar[0][1][1] = 5;
+            Takimlar[0][1][2] = 0;
+            Takimlar[0][2][0] = 5;                          
+            Takimlar[0][2][1] = 2;
+            Takimlar[0][2][2] = 5;
+            Takimlar[0][3][0] = 0;
+            Takimlar[0][3][1] = 0;
+            Takimlar[0][3][2] = 5;
+            Takimlar[0][4][0] = 5;
+            Takimlar[0][4][1] = 4;
+            Takimlar[0][4][2] = 4;
+
+            Takimlar[1][0][0] = 0;
+            Takimlar[1][0][1] = 5;
+            Takimlar[1][0][2] = 0;
+            Takimlar[1][1][0] = 5;
+            Takimlar[1][1][1] = 5;
+            Takimlar[1][1][2] = 5;
+            Takimlar[1][2][0] = 2;
+            Takimlar[1][2][1] = 1;
+            Takimlar[1][2][2] = 2;
+            Takimlar[1][3][0] = 3;
+            Takimlar[1][3][1] = 1;
+            Takimlar[1][3][2] = 3;
+            Takimlar[1][4][0] = 5;
+            Takimlar[1][4][1] = 1;
+            Takimlar[1][4][2] = 5;
+            
+            Takimlar[2][0][0] = 5;
+            Takimlar[2][0][1] = 2;
+            Takimlar[2][0][2] = 2;
+            Takimlar[2][1][0] = 2;
+            Takimlar[2][1][1] = 5;
+            Takimlar[2][1][2] = 2;
+            Takimlar[2][2][0] = 5;
+            Takimlar[2][2][1] = 5;
+            Takimlar[2][2][2] = 5;
+            Takimlar[2][3][0] = 3;
+            Takimlar[2][3][1] = 3;
+            Takimlar[2][3][2] = 3;
+            Takimlar[2][4][0] = 5;
+            Takimlar[2][4][1] = 2;
+            Takimlar[2][4][2] = 5;
+
+            Takimlar[3][0][0] = 0;
+            Takimlar[3][0][1] = 0;
+            Takimlar[3][0][2] = 5;
+            Takimlar[3][1][0] = 3;
+            Takimlar[3][1][1] = 5;
+            Takimlar[3][1][2] = 3;
+            Takimlar[3][2][0] = 3;
+            Takimlar[3][2][1] = 3;
+            Takimlar[3][2][2] = 3;
+            Takimlar[3][3][0] = 5;
+            Takimlar[3][3][1] = 5;
+            Takimlar[3][3][2] = 5;
+            Takimlar[3][4][0] = 3;
+            Takimlar[3][4][1] = 3;
+            Takimlar[3][4][2] = 3;
+
+            Takimlar[4][0][0] = 5;
+            Takimlar[4][0][1] = 5;
+            Takimlar[4][0][2] = 4;
+            Takimlar[4][1][0] = 5;
+            Takimlar[4][1][1] = 1;
+            Takimlar[4][1][2] = 5;
+            Takimlar[4][2][0] = 5;
+            Takimlar[4][2][1] = 2;
+            Takimlar[4][2][2] = 4;
+            Takimlar[4][3][0] = 3;
+            Takimlar[4][3][1] = 3;
+            Takimlar[4][3][2] = 3;
+            Takimlar[4][4][0] = 5;
+            Takimlar[4][4][1] = 5;
+            Takimlar[4][4][2] = 5;
+            //kod sonu
+            //oyun her açıldığında rasgele stad gelmesini sağlayan kod alanı
+          var rnd=Math.floor(Math.random()*3)
+          $("body").css({"background":"url('images/"+rnd+".jpg') no-repeat center center fixed"});
+            //kod sonu
+            //sonucları öğrenmek için yazılan kod satırı
+            $(".sonuclar").click(function(){
+              var kazandı=Takimlar[sonucsecim][sonucsecim2][rnd]; //burada harita ve karakterlerin indexleri alınarak dizi içerisine yerleştirdim ve bununla birlikte kimin kazandığını öğreniyorum
+             if(sonucsecim==kazandı){ //açılan paragraflara göre sonucların eklenmesi
+               $(".kazanan1").text("kazanan");
+               $(".kazanan1").css({"color":"green"});
+               $(".kazanan2").text("kaybeden");
+               $(".kazanan2").css({"color":"red"});
+             }
+             else if(sonucsecim2==kazandı){
+               $(".kazanan1").text("kaybeden");
+               $(".kazanan1").css({"color":"red"});
+               $(".kazanan2").text("kazanan");
+               $(".kazanan2").css({"color":"green"});
+             }
+             else{
+               $(".kazanan1").text("berabere kalindi");
+               $(".kazanan1").css({"color":"blue"});
+               $(".kazanan2").text("berabere kalindi");
+               $(".kazanan2").css({"color":"blue"});//kod sonu
+             }
+            });
+        
+        });
+     
+    </script>
+  </body>
+</html>

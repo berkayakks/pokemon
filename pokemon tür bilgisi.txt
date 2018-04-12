@@ -1,0 +1,45 @@
+su > ateþ                          su kodu = 0
+elektrik > su                      ateþ kodu = 1
+toprak > elektrik                  elektrik kodu = 2 
+ateþ > çimen                       toprak kodu = 3
+çimen > su                         çimen kodu = 4
+su > toprak
+
+
+
+su vs ateþ = su win 
+su vs elektrik = elektrik win
+su vs toprak = su win
+su vs çimen = çimen win
+su vs su = kazanan yok
+
+ateþ vs su = su win
+ateþ vs elektrik = elektrik win
+ateþ vs toprak = toprak win
+ateþ vs çimen = ateþ win
+ateþ vs ateþ = kazanan yok
+
+elektrik vs su = elektrik win
+elektrik vs ateþ = elektrik win
+elektrik vs toprak = toprak win
+elektrik vs çimen = elektrik win
+elektrik vs elektrik =kazanan yok
+
+toprak vs su = su win
+toprak vs ateþ = toprak win
+toprak vs çimen = toprak win
+toprak vs elektrik = toprak win
+toprak vs toprak = kazanan yok
+
+çimen vs su = çimen win
+çimen vs ateþ = ateþ win
+çimen vs elektrik = elektrik win
+çimen vs toprak = toprak win
+çimen vs çimen = kazanan yok
+
+
+saha çeþitleri : 
+
+sulu saha  = su pokemonuna güç verir
+ateþli saha = ateþ ve elektrik pokemonuna güç verir
+toprak saha = çimen ve toprak pokemonuna güç verir
