@@ -63,7 +63,25 @@
                 <button class="pokemon-sec btn btn-success">pokemonunu seç</button>
                 <br>
                 <p class="kazanan1">sonucu goster</p>
+                  <div class="matematik-islem1">
+                    <div class="rakamlar">
+                      <div class="row">
+                        <div class="col-md-12">
+                            <h2 class="sayi1">30</h2>
+                            <h2 class="islem">*</h2>
+                            <h2 class="sayi2">30</h2>
+                        </div> 
+                       </div>
+                    </div>
+                    <br>
+                    <input placeholder="cevabını ver" class="mat-input form-control" type="text">
+                    <br>
+                    <button class="cevapla btn btn-success cevapla">cevapla</button>
+                    <br>
+                    <h1 class="geri-sayim">30</h1>
+                  </div>
               </div>
+              
               <div class="col-md-6">
                   <div class="row">
                       <div class="col-md-2">
@@ -81,6 +99,23 @@
                 <button class="pokemon-sec2 btn btn-success">pokemonunu seç</button>
                 <br>
                 <p class="kazanan2"> sonucu goster</p>
+                <div class="matematik-islem2">
+                    <div class="rakamlar">
+                      <div class="row">
+                        <div class="col-md-12">
+                            <h2 class="sayi1">30</h2>
+                            <h2 class="islem">*</h2>
+                            <h2 class="sayi2">30</h2>
+                        </div>
+                       </div>
+                    </div>
+                    <br>
+                    <input placeholder="cevabını ver" class="mat-input2 form-control" type="text">
+                    <br>
+                    <button class="cevapla btn btn-success cevapla">cevapla</button>
+                    <br>
+                    <h1 class="geri-sayim">30</h1>
+                  </div>
               </div>
               
           </div>
@@ -99,10 +134,17 @@
      
         $(document).ready(function(){
           /* slider oluşturma alanı */
+          var x=0;
           var pokisecim=0;
+          var gerisayim;
           var sonucsecim;
           var sonucsecim2;
           var haritasecim;
+          var rasgele1;
+          var rasgele2;
+          var rasgeleislem;
+          var matsonuc;
+          var isaret;
           var canbar1=100;
           var canbar2=100;
           var lisayisi=$(".slider ul li").length;
@@ -281,20 +323,20 @@
             $(".sonuclar").click(function(){
               var kazandı=Takimlar[sonucsecim][sonucsecim2][rnd]; //burada harita ve karakterlerin indexleri alınarak dizi içerisine yerleştirdim ve bununla birlikte kimin kazandığını öğreniyorum
              if(sonucsecim==kazandı){ //açılan paragraflara göre sonucların eklenmesi
-               canbar2-=20;
+               
                $(".kazanan1").text("kazanan");
                $(".kazanan1").css({"color":"green"});
                $(".kazanan2").text("kaybeden");
                $(".kazanan2").css({"color":"red"});
-               $(".canbar2").css({"width":""+canbar2+"%"});
+               //$(".canbar2").css({"width":""+canbar2+"%"});
              }
              else if(sonucsecim2==kazandı){
-               canbar1-=20;
+              // canbar1-=20;
                $(".kazanan1").text("kaybeden");
                $(".kazanan1").css({"color":"red"});
                $(".kazanan2").text("kazanan");
                $(".kazanan2").css({"color":"green"});
-               $(".canbar1").css({"width":""+canbar1+""});
+              // $(".canbar1").css({"width":""+canbar1+"%"});
              }
              else{
                $(".kazanan1").text("berabere kalindi");
@@ -302,8 +344,126 @@
                $(".kazanan2").text("berabere kalindi");
                $(".kazanan2").css({"color":"blue"});//kod sonu
              }
+             $(".pokemon-sec").fadeOut(500);
+             $(".pokemon-sec2").fadeOut(500);
+             $(".matematik-islem1").fadeIn(500);
+
+             rasgele1=parseInt(Math.floor(Math.random()*50));
+             $(".sayi1").text(rasgele1);
+             rasgele2=parseInt(Math.floor(Math.random()*50));
+             $(".sayi2").text(rasgele2);
+             rasgeleislem=parseInt(Math.floor(Math.random()*3));
+             if(rasgeleislem==0){
+              $(".islem").text("+");
+              matsonuc=rasgele1+rasgele2;
+             }
+             else if(rasgeleislem==1){
+              $(".islem").text("-");
+              matsonuc=rasgele1-rasgele2;
+             }
+             else if(rasgeleislem==2){
+              $(".islem").text("*");
+              matsonuc=rasgele1*rasgele2;
+             }
+             else if(rasgeleislem==3){
+              $(".islem").text("/");
+              matsonuc=rasgele1/rasgele2;
+             }
+             gerisayim=29;
+           var intervalim= setInterval(function(){
+                $(".geri-sayim").text(gerisayim);
+                gerisayim--;
+                if(gerisayim==-1){
+                  clearInterval(intervalim);
+                  gerisayim=29;
+                }
+            }, 1000);
             });
-        
+            
+            $(".cevapla").click(function(){
+              x++;
+              
+              if(x==1){
+                gerisayim=29;
+                if($(".mat-input").val()==matsonuc){
+                  if($(".kazanan1").text()=="kazanan"){
+                    canbar2-=20;
+                    $(".canbar2").css({"width":""+canbar2+"%"});
+                  }
+                  else{
+                    canbar2-=10;
+                    $(".canbar2").css({"width":""+canbar2+"%"});
+                  }
+                }
+                $(".matematik-islem1").fadeOut(500);
+                $(".matematik-islem2").fadeIn(500);
+                rasgele1=parseInt(Math.floor(Math.random()*50));
+                $(".sayi1").text(rasgele1);
+                rasgele2=parseInt(Math.floor(Math.random()*50));
+                $(".sayi2").text(rasgele2);
+                rasgeleislem=parseInt(Math.floor(Math.random()*3));
+                if(rasgeleislem==0){
+                  $(".islem").text("+");
+                  matsonuc=rasgele1+rasgele2;
+                 
+                }
+                else if(rasgeleislem==1){
+                  $(".islem").text("-");
+                  matsonuc=rasgele1-rasgele2;
+                  
+                }
+                else if(rasgeleislem==2){
+                  $(".islem").text("*");
+                  matsonuc=rasgele1*rasgele2;
+                  
+                }
+                else if(rasgeleislem==3){
+                  $(".islem").text("/");
+                  matsonuc=rasgele1/rasgele2;
+                  
+                }
+              }
+              else if(x==2){
+                gerisayim=29;
+                if($(".mat-input2").val()==matsonuc){
+                  if($(".kazanan2").text()=="kazanan"){
+                    canbar1-=20;
+                    $(".canbar1").css({"width":""+canbar1+"%"});
+                  }
+                  else{
+                    canbar1-=10;
+                    $(".canbar1").css({"width":""+canbar1+"%"});
+                  }
+                }
+                $(".matematik-islem1").fadeIn(500);
+                $(".matematik-islem2").fadeOut(500);
+                rasgele1=parseInt(Math.floor(Math.random()*50));
+                $(".sayi1").text(rasgele1);
+                rasgele2=parseInt(Math.floor(Math.random()*50));
+                $(".sayi2").text(rasgele2);
+                rasgeleislem=parseInt(Math.floor(Math.random()*3));
+                if(rasgeleislem==0){
+                  $(".islem").text("+");
+                  matsonuc=rasgele1+rasgele2;
+                }
+                else if(rasgeleislem==1){
+                  $(".islem").text("-");
+                  matsonuc=rasgele1-rasgele2;
+                }
+                else if(rasgeleislem==2){
+                  $(".islem").text("*");
+                  matsonuc=rasgele1*rasgele2;
+                }
+                else if(rasgeleislem==3){
+                  $(".islem").text("/");
+                  matsonuc=rasgele1/rasgele2;
+                }
+                x=0;
+                  }
+               
+              
+            });
+            
         });
      
     </script>

@@ -126,4 +126,40 @@ a {
 .canbar2 {
   width: 100%; }
 
+.matematik-islem1 {
+  display: none;
+  margin: 0 auto;
+  max-width: 200px; }
+  .matematik-islem1 .rakamlar {
+    max-width: 150px;
+    margin-left: 43px; }
+    .matematik-islem1 .rakamlar .row h2 {
+      margin-top: 15px;
+      color: white;
+      text-shadow: 3px 3px black;
+      float: left; }
+  .matematik-islem1 h1 {
+    color: white;
+    text-shadow: 3px 3px black; }
+  .matematik-islem1 .mat-input {
+    margin-top: -20px; }
+
+.matematik-islem2 {
+  display: none;
+  margin: 0 auto;
+  max-width: 200px; }
+  .matematik-islem2 .rakamlar {
+    max-width: 150px;
+    margin-left: 43px; }
+    .matematik-islem2 .rakamlar .row h2 {
+      margin-top: 15px;
+      color: white;
+      text-shadow: 3px 3px black;
+      float: left; }
+  .matematik-islem2 h1 {
+    color: white;
+    text-shadow: 3px 3px black; }
+  .matematik-islem2 .mat-input {
+    margin-top: -20px; }
+
 /*# sourceMappingURL=style.css.map */
