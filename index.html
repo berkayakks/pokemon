@@ -486,8 +486,6 @@
                     $(".canbar2").css({"width":""+canbar2+"%"});
                     if(canbar2==0){
                       alert("tebrikler "+pokemonum1+" kazandı");
-                      $(".matematik-islem1").fadeOut(500);
-                      $(".matematik-islem2").fadeOut(500);
                     }
                   }
                   else{
@@ -495,13 +493,17 @@
                     $(".canbar2").css({"width":""+canbar2+"%"});
                     if(canbar2==0){
                       alert("tebrikler "+pokemonum1+" kazandı");
-                      $(".matematik-islem1").fadeOut(500);
-                      $(".matematik-islem2").fadeOut(500);
                     }
                   }
                 }
-                $(".matematik-islem1").fadeOut(500);
-                $(".matematik-islem2").fadeIn(500);
+                if(canbar1==0||canbar2==0){
+                  $(".matematik-islem1").fadeOut(500);
+                  $(".matematik-islem2").fadeOut(500);
+                }
+                else{
+                  $(".matematik-islem1").fadeOut(500);
+                  $(".matematik-islem2").fadeIn(500);
+                }
                 rasgele1=parseInt(Math.floor(Math.random()*50));
                 $(".sayi1").text(rasgele1);
                 rasgele2=parseInt(Math.floor(Math.random()*50));
@@ -537,8 +539,6 @@
                     $(".canbar1").css({"width":""+canbar1+"%"});
                     if(canbar1==0){
                       alert("tebrikler "+pokemonum2+" kazandı");
-                      $(".matematik-islem1").fadeOut(500);
-                      $(".matematik-islem2").fadeOut(500);
                     }
                   }
                   else{
@@ -546,13 +546,17 @@
                     $(".canbar1").css({"width":""+canbar1+"%"});
                     if(canbar1==0){
                       alert("tebrikler "+pokemonum2+" kazandı");
-                      $(".matematik-islem1").fadeOut(500);
-                      $(".matematik-islem2").fadeOut(500);
                     }
                   }
                 }
-                $(".matematik-islem1").fadeIn(500);
-                $(".matematik-islem2").fadeOut(500);
+                if(canbar1==0||canbar2==0){
+                  $(".matematik-islem1").fadeOut(500);
+                  $(".matematik-islem2").fadeOut(500);
+                }
+                else{
+                  $(".matematik-islem1").fadeIn(500);
+                  $(".matematik-islem2").fadeOut(500);
+                }
                 rasgele1=parseInt(Math.floor(Math.random()*50));
                 $(".sayi1").text(rasgele1);
                 rasgele2=parseInt(Math.floor(Math.random()*50));
