@@ -137,6 +137,8 @@
           var x=0;
           var timerx=0;
           var pokisecim=0;
+          var pokemonum1;
+          var pokemonum2;
           var gerisayim;
           var sonucsecim;
           var sonucsecim2;
@@ -210,6 +212,21 @@
           $(".sec").click(function(){
             if(pokisecim==1){
               $(".ball1").attr("src","images/"+liDeger+".gif");
+              if(liDeger==0){
+                pokemonum1="squirtle";
+              }
+              else if(liDeger==1){
+                pokemonum1="charmander";
+              }
+              else if(liDeger==2){
+                pokemonum1="pikachu";
+              }
+              else if(liDeger==3){
+                pokemonum1="Geodude";
+              }
+              else if(liDeger==4){
+                pokemonum1="balbazar";
+              }
               $(".box").fadeOut(500);
               pokisecim=0;
               sonucsecim=liDeger;
@@ -217,6 +234,21 @@
             if(pokisecim==2){
               $(".ball2").attr("src","images/"+liDeger+".gif");
               $(".box").fadeOut(500);
+              if(liDeger==0){
+                pokemonum2="squirtle";
+              }
+              else if(liDeger==1){
+                pokemonum2="charmander";
+              }
+              else if(liDeger==2){
+                pokemonum2="pikachu";
+              }
+              else if(liDeger==3){
+                pokemonum2="Geodude";
+              }
+              else if(liDeger==4){
+                pokemonum2="balbazar";
+              }
               pokisecim=0;
               sonucsecim2=liDeger;
             }
@@ -452,10 +484,20 @@
                   if($(".kazanan1").text()=="kazanan"){
                     canbar2-=20;
                     $(".canbar2").css({"width":""+canbar2+"%"});
+                    if(canbar2==0){
+                      alert("tebrikler "+pokemonum1+" kazandı");
+                      $(".matematik-islem1").fadeOut(500);
+                      $(".matematik-islem2").fadeOut(500);
+                    }
                   }
                   else{
                     canbar2-=10;
                     $(".canbar2").css({"width":""+canbar2+"%"});
+                    if(canbar2==0){
+                      alert("tebrikler "+pokemonum1+" kazandı");
+                      $(".matematik-islem1").fadeOut(500);
+                      $(".matematik-islem2").fadeOut(500);
+                    }
                   }
                 }
                 $(".matematik-islem1").fadeOut(500);
@@ -493,10 +535,20 @@
                   if($(".kazanan2").text()=="kazanan"){
                     canbar1-=20;
                     $(".canbar1").css({"width":""+canbar1+"%"});
+                    if(canbar1==0){
+                      alert("tebrikler "+pokemonum2+" kazandı");
+                      $(".matematik-islem1").fadeOut(500);
+                      $(".matematik-islem2").fadeOut(500);
+                    }
                   }
                   else{
                     canbar1-=10;
                     $(".canbar1").css({"width":""+canbar1+"%"});
+                    if(canbar1==0){
+                      alert("tebrikler "+pokemonum2+" kazandı");
+                      $(".matematik-islem1").fadeOut(500);
+                      $(".matematik-islem2").fadeOut(500);
+                    }
                   }
                 }
                 $(".matematik-islem1").fadeIn(500);
