@@ -113,7 +113,14 @@ a {
   font-size: 20px;
   text-shadow: 2px 2px #333; }
 
-.progress {
+.progress1 {
+  margin: 0 auto;
+  background-color: red;
+  box-shadow: 3px 3px black;
+  max-width: 300px;
+  margin-bottom: 10px; }
+
+.progress2 {
   margin: 0 auto;
   background-color: red;
   box-shadow: 3px 3px black;
