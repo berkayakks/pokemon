@@ -1,0 +1,101 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css" integrity="sha384-9gVQ4dYFwwWSjIDZnLEWnxCjeSWFphJiwGPXr1jddIhOegiu1FwO5qRGvFXOdJZ4" crossorigin="anonymous">
+    <link href="https://fonts.googleapis.com/css?family=Gamja+Flower" rel="stylesheet">
+    <script defer src="https://use.fontawesome.com/releases/v5.0.10/js/all.js" integrity="sha384-slN8GvtUJGnv6ca26v8EzVaR9DC58QEwsIk9q1QXdCU8Yu8ck/tL/5szYlBbqmS+" crossorigin="anonymous"></script>
+    <style>
+        body{
+            background: url("images/giris-backgroud.jpg") no-repeat center center fixed;
+            background-size: cover;
+        }
+        
+        .giris-button{
+            text-align: center;
+            margin: 15% auto;
+        }
+        .giris-button-item{
+            padding: 15px 30px 15px 30px;
+        }
+        .giris-bilgi{
+            text-align: center;
+            margin-top: 80px;
+        }
+        .giris-bilgi-item{
+            font-weight: bold;
+            font-size: 40px;
+            font-family: 'Gamja Flower', cursive;
+            cursor: pointer;
+        }
+            .box{
+                z-index: 10;
+                width: 100%;
+                height: 100%;
+                position: fixed;
+                background: rgba(0,0,0,.7);
+                
+            }
+            .kutu{
+                background-color: red;
+                width: 1240px;
+                height: 700px;
+                position: absolute;
+                left: 50%;
+                top: 50%;
+                margin-left: -620px;
+                margin-top:-350px;
+            }
+            .kapat{
+                cursor: pointer;
+                position: absolute;
+                right: 0;
+                top: 0;
+                margin-top: 7px;
+                margin-right: 7px;
+                transition: all 0.5s;
+                
+            }
+            .kapat:hover{
+                    color:aqua;
+                }
+    </style>
+  </head>
+  <body>
+    <div class="box">
+            
+            <div class="kutu">
+                <p class="kapat"><i class="fas fa-times-circle fa-2x"></i></p>
+
+            </div>
+     </div>
+    </div>
+    <div class="giris">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12">
+                    <a href="game.html"><div class="giris-button"><img style="cursor: pointer;" width="200px" height="100px" src="images/start.png" alt=""></div></a>
+                </div>
+                <div class="col-md-12 giris-bilgi"> <p class="giris-bilgi-item">daha fazla bilgi edin(önerilen) <i class="fas fa-chevron-circle-right fa-0.5x"></i></p> </div>
+            </div>
+        </div>
+    </div>
+    
+    
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+    <script>
+        $(document).ready(function(){
+            $(".kapat").click(function(){
+                 
+             });
+         
+        });
+    </script>
+</body>
+</html>
