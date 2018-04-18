@@ -10,6 +10,7 @@
     <link rel="stylesheet" href="css/style.css">
     <link href="https://fonts.googleapis.com/css?family=Black+Han+Sans" rel="stylesheet">
     <link rel="stylesheet" href="css/lightbox.min.css">
+    <link rel="stylesheet" type="text/css" href="css/animate.css">
     <title>Hello, world!</title>
     
   </head>
@@ -96,7 +97,7 @@
                     </div>
                 <img class="ball2" src="images/ball.gif" width="200px" height="200px" alt="">
                 <br>
-                <button class="pokemon-sec2 btn btn-success">pokemonunu seç</button>
+                <button class="pokemon-sec2 btn btn-success ">pokemonunu seç</button>
                 <br>
                 <p class="kazanan2"> sonucu goster</p>
                 <div class="matematik-islem2">
@@ -130,6 +131,10 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
     <script src="js/lightbox-plus-jquery.min.js"></script>
+    <script src="js/wow.js"></script>
+    <script>
+    new WOW().init();
+    </script>
     <script>
      
         $(document).ready(function(){
@@ -478,12 +483,15 @@
               x++;
               
               if(x==1){
+                $(".progress").removeClass("wow shake animated");
                 timerx=1;
                 gerisayim=29;
                 if($(".mat-input").val()==matsonuc){
                   if($(".kazanan1").text()=="kazanan"){
                     canbar2-=20;
                     $(".canbar2").css({"width":""+canbar2+"%"});
+                    $(".progress").addClass("wow shake animated");
+                    
                     if(canbar2==0){
                       alert("tebrikler "+pokemonum1+" kazandı");
                     }
@@ -491,11 +499,14 @@
                   else{
                     canbar2-=10;
                     $(".canbar2").css({"width":""+canbar2+"%"});
+                    $(".progress").addClass("wow shake animated");
+                    
                     if(canbar2==0){
                       alert("tebrikler "+pokemonum1+" kazandı");
                     }
                   }
                 }
+                
                 if(canbar1==0||canbar2==0){
                   $(".matematik-islem1").fadeOut(500);
                   $(".matematik-islem2").fadeOut(500);
@@ -531,12 +542,15 @@
                 }
               }
               else if(x==2){
+                $(".progress").removeClass("wow shake animated");
                 timerx=0;
                 gerisayim=29;
                 if($(".mat-input2").val()==matsonuc){
                   if($(".kazanan2").text()=="kazanan"){
                     canbar1-=20;
                     $(".canbar1").css({"width":""+canbar1+"%"});
+                    $(".progress").addClass("wow shake animated");
+                    
                     if(canbar1==0){
                       alert("tebrikler "+pokemonum2+" kazandı");
                     }
@@ -544,11 +558,14 @@
                   else{
                     canbar1-=10;
                     $(".canbar1").css({"width":""+canbar1+"%"});
+                    $(".progress").addClass("wow shake animated");
+                   
                     if(canbar1==0){
                       alert("tebrikler "+pokemonum2+" kazandı");
                     }
                   }
                 }
+                
                 if(canbar1==0||canbar2==0){
                   $(".matematik-islem1").fadeOut(500);
                   $(".matematik-islem2").fadeOut(500);
@@ -583,6 +600,7 @@
                
               
             });
+            
             
         });
      
