@@ -122,7 +122,16 @@
           </div>
           <div class="row">
             <button class="sonuclar btn btn-primary">sonucları göster</button>
+           <div class="derece-text" style=" font-family: 'Black Han Sans', sans-serif;
+           color: white;
+           text-shadow: 2px 2px #333;margin: 0 auto;"> <p style="color: white; font-size: 24px;">seviyeni belirle</p>
           </div>
+          </div>
+          <select style="width: 200px; margin: 0 auto;" id="derece" class="form-control">
+              <option>düşük</option>
+              <option>orta</option>
+              <option>zor</option>
+          </select>
           <div class="row">
             <button style="display:none;padding:10px ;margin: 0 auto"  class="tekrar-oyna btn btn-primary">tekrar oyna</button>
           </div>
@@ -394,29 +403,47 @@
              }
              $(".pokemon-sec").fadeOut(500); //tekrar seçmeyi önlemek amacıyla butonlar saklanıyor
              $(".pokemon-sec2").fadeOut(500);
+             $("#derece").hide();
+             $(".derece-text").hide();
              $(".matematik-islem1").fadeIn(500); //islemlerin yapılacağı ilk alan açılıyor
- 
-             rasgele1=parseInt(Math.floor(Math.random()*50)); //rasgele 0 ile 50 arasında rakamlar belirleniyor
-             $(".sayi1").text(rasgele1);
-             rasgele2=parseInt(Math.floor(Math.random()*50));
-             $(".sayi2").text(rasgele2);
-             rasgeleislem=parseInt(Math.floor(Math.random()*3));
-             if(rasgeleislem==0){
-              $(".islem").text("+");
-              matsonuc=rasgele1+rasgele2;
-             }
-             else if(rasgeleislem==1){
-              $(".islem").text("-");
-              matsonuc=rasgele1-rasgele2;
-             }
-             else if(rasgeleislem==2){
-              $(".islem").text("*");
-              matsonuc=rasgele1*rasgele2;
-             }
-             else if(rasgeleislem==3){
-              $(".islem").text("/");
-              matsonuc=rasgele1/rasgele2;
-             }
+             if($("#derece").val()=="düşük"){
+              rasgele1=parseInt(Math.floor(Math.random()*10)); //rasgele 0 ile 50 arasında rakamlar belirleniyor
+              $(".sayi1").text(rasgele1);
+              rasgele2=parseInt(Math.floor(Math.random()*10));
+              $(".sayi2").text(rasgele2);
+              rasgeleislem=parseInt(Math.floor(Math.random()*3));
+              }
+            if($("#derece").val()=="orta"){
+              rasgele1=parseInt(Math.floor(Math.random()*30)); //rasgele 0 ile 50 arasında rakamlar belirleniyor
+              $(".sayi1").text(rasgele1);
+              rasgele2=parseInt(Math.floor(Math.random()*30));
+              $(".sayi2").text(rasgele2);
+              rasgeleislem=parseInt(Math.floor(Math.random()*3));
+              }
+            if($("#derece").val()=="zor"){
+              rasgele1=parseInt(Math.floor(Math.random()*100)); //rasgele 0 ile 50 arasında rakamlar belirleniyor
+              $(".sayi1").text(rasgele1);
+              rasgele2=parseInt(Math.floor(Math.random()*100));
+              $(".sayi2").text(rasgele2);
+              rasgeleislem=parseInt(Math.floor(Math.random()*3));
+              }
+              if(rasgeleislem==0){
+                $(".islem").text("+");
+                matsonuc=rasgele1+rasgele2;
+              }
+              else if(rasgeleislem==1){
+                $(".islem").text("-");
+                matsonuc=rasgele1-rasgele2;
+              }
+              else if(rasgeleislem==2){
+                $(".islem").text("*");
+                matsonuc=rasgele1*rasgele2;
+              }
+              else if(rasgeleislem==3){
+                $(".islem").text("/");
+                matsonuc=rasgele1/rasgele2;
+              }
+             
              gerisayim=29;  //burası timer isleminin başladığı alan 29 dan başlatılıyor
              var intervalim= setInterval(function(){
                 $(".geri-sayim").text(gerisayim); //p etiketine her saniye atılıyor
@@ -431,11 +458,27 @@
                     gerisayim=29;
                     $(".matematik-islem1").fadeOut(500);
                     $(".matematik-islem2").fadeIn(500);
-                    rasgele1=parseInt(Math.floor(Math.random()*50)); //tekrardan rasgele rakam atama işlemi oluşuyor
-                    $(".sayi1").text(rasgele1);
-                    rasgele2=parseInt(Math.floor(Math.random()*50));
-                    $(".sayi2").text(rasgele2);
-                    rasgeleislem=parseInt(Math.floor(Math.random()*3));
+                    if($("#derece").val()=="düşük"){
+                      rasgele1=parseInt(Math.floor(Math.random()*10)); //rasgele 0 ile 50 arasında rakamlar belirleniyor
+                      $(".sayi1").text(rasgele1);
+                      rasgele2=parseInt(Math.floor(Math.random()*10));
+                      $(".sayi2").text(rasgele2);
+                      rasgeleislem=parseInt(Math.floor(Math.random()*3));
+                      }
+                    if($("#derece").val()=="orta"){
+                      rasgele1=parseInt(Math.floor(Math.random()*30)); //rasgele 0 ile 50 arasında rakamlar belirleniyor
+                      $(".sayi1").text(rasgele1);
+                      rasgele2=parseInt(Math.floor(Math.random()*30));
+                      $(".sayi2").text(rasgele2);
+                      rasgeleislem=parseInt(Math.floor(Math.random()*3));
+                      }
+                    if($("#derece").val()=="zor"){
+                      rasgele1=parseInt(Math.floor(Math.random()*100)); //rasgele 0 ile 50 arasında rakamlar belirleniyor
+                      $(".sayi1").text(rasgele1);
+                      rasgele2=parseInt(Math.floor(Math.random()*100));
+                      $(".sayi2").text(rasgele2);
+                      rasgeleislem=parseInt(Math.floor(Math.random()*3));
+                      }
                     if(rasgeleislem==0){
                       $(".islem").text("+");
                       matsonuc=rasgele1+rasgele2;
@@ -463,11 +506,27 @@
                     gerisayim=29;
                     $(".matematik-islem2").fadeOut(500);  //burada yukarıda belirtildiği gibi tam tersi işlem oluşuyor
                     $(".matematik-islem1").fadeIn(500);
-                    rasgele1=parseInt(Math.floor(Math.random()*50));
-                    $(".sayi1").text(rasgele1);
-                    rasgele2=parseInt(Math.floor(Math.random()*50));
-                    $(".sayi2").text(rasgele2);
-                    rasgeleislem=parseInt(Math.floor(Math.random()*3));
+                    if($("#derece").val()=="düşük"){
+                      rasgele1=parseInt(Math.floor(Math.random()*10)); //rasgele 0 ile 50 arasında rakamlar belirleniyor
+                      $(".sayi1").text(rasgele1);
+                      rasgele2=parseInt(Math.floor(Math.random()*10));
+                      $(".sayi2").text(rasgele2);
+                      rasgeleislem=parseInt(Math.floor(Math.random()*3));
+                      }
+                    if($("#derece").val()=="orta"){
+                      rasgele1=parseInt(Math.floor(Math.random()*30)); //rasgele 0 ile 50 arasında rakamlar belirleniyor
+                      $(".sayi1").text(rasgele1);
+                      rasgele2=parseInt(Math.floor(Math.random()*30));
+                      $(".sayi2").text(rasgele2);
+                      rasgeleislem=parseInt(Math.floor(Math.random()*3));
+                      }
+                    if($("#derece").val()=="zor"){
+                      rasgele1=parseInt(Math.floor(Math.random()*100)); //rasgele 0 ile 50 arasında rakamlar belirleniyor
+                      $(".sayi1").text(rasgele1);
+                      rasgele2=parseInt(Math.floor(Math.random()*100));
+                      $(".sayi2").text(rasgele2);
+                      rasgeleislem=parseInt(Math.floor(Math.random()*3));
+                      }
                     if(rasgeleislem==0){
                       $(".islem").text("+");
                       matsonuc=rasgele1+rasgele2; //rasgele oluşan sayılar burada matsonuca atılıyor
@@ -535,11 +594,27 @@
                   $(".matematik-islem1").fadeOut(500);
                   $(".matematik-islem2").fadeIn(500);
                 }
-                rasgele1=parseInt(Math.floor(Math.random()*50));//yukarıda belirtilenler gerçekleşmesse tekrardan rakam atama işlemi gerçekleşiyor
-                $(".sayi1").text(rasgele1);
-                rasgele2=parseInt(Math.floor(Math.random()*50));
-                $(".sayi2").text(rasgele2);
-                rasgeleislem=parseInt(Math.floor(Math.random()*3));
+                if($("#derece").val()=="düşük"){
+              rasgele1=parseInt(Math.floor(Math.random()*10)); //rasgele 0 ile 50 arasında rakamlar belirleniyor
+              $(".sayi1").text(rasgele1);
+              rasgele2=parseInt(Math.floor(Math.random()*10));
+              $(".sayi2").text(rasgele2);
+              rasgeleislem=parseInt(Math.floor(Math.random()*3));
+              }
+            if($("#derece").val()=="orta"){
+              rasgele1=parseInt(Math.floor(Math.random()*30)); //rasgele 0 ile 50 arasında rakamlar belirleniyor
+              $(".sayi1").text(rasgele1);
+              rasgele2=parseInt(Math.floor(Math.random()*30));
+              $(".sayi2").text(rasgele2);
+              rasgeleislem=parseInt(Math.floor(Math.random()*3));
+              }
+            if($("#derece").val()=="zor"){
+              rasgele1=parseInt(Math.floor(Math.random()*100)); //rasgele 0 ile 50 arasında rakamlar belirleniyor
+              $(".sayi1").text(rasgele1);
+              rasgele2=parseInt(Math.floor(Math.random()*100));
+              $(".sayi2").text(rasgele2);
+              rasgeleislem=parseInt(Math.floor(Math.random()*3));
+              }
                 if(rasgeleislem==0){
                   $(".islem").text("+");
                   matsonuc=rasgele1+rasgele2;
@@ -597,11 +672,27 @@
                   $(".matematik-islem1").fadeIn(500);
                   $(".matematik-islem2").fadeOut(500);
                 }
-                rasgele1=parseInt(Math.floor(Math.random()*50));
-                $(".sayi1").text(rasgele1);
-                rasgele2=parseInt(Math.floor(Math.random()*50));
-                $(".sayi2").text(rasgele2);
-                rasgeleislem=parseInt(Math.floor(Math.random()*3));
+                if($("#derece").val()=="düşük"){
+              rasgele1=parseInt(Math.floor(Math.random()*10)); //rasgele 0 ile 50 arasında rakamlar belirleniyor
+              $(".sayi1").text(rasgele1);
+              rasgele2=parseInt(Math.floor(Math.random()*10));
+              $(".sayi2").text(rasgele2);
+              rasgeleislem=parseInt(Math.floor(Math.random()*3));
+              }
+            if($("#derece").val()=="orta"){
+              rasgele1=parseInt(Math.floor(Math.random()*30)); //rasgele 0 ile 50 arasında rakamlar belirleniyor
+              $(".sayi1").text(rasgele1);
+              rasgele2=parseInt(Math.floor(Math.random()*30));
+              $(".sayi2").text(rasgele2);
+              rasgeleislem=parseInt(Math.floor(Math.random()*3));
+              }
+            if($("#derece").val()=="zor"){
+              rasgele1=parseInt(Math.floor(Math.random()*100)); //rasgele 0 ile 50 arasında rakamlar belirleniyor
+              $(".sayi1").text(rasgele1);
+              rasgele2=parseInt(Math.floor(Math.random()*100));
+              $(".sayi2").text(rasgele2);
+              rasgeleislem=parseInt(Math.floor(Math.random()*3));
+              }
                 if(rasgeleislem==0){
                   $(".islem").text("+");
                   matsonuc=rasgele1+rasgele2;
